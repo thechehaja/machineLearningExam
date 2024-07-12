@@ -15,7 +15,7 @@ def main():
     df = clean_data(df)
 
     # Treniraj model
-    target_column = 'Test Results'
+    target_column = 'Gender'  # Promijeni na željenu ciljnu kolonu
     model, X_test, y_test = train_model(df, target_column, model_path)
 
     # Evaluiraj model
