@@ -1,7 +1,7 @@
-from scripts.load_data import load_data
-from scripts.clean_data import clean_data
-from scripts.train_model import train_model
-from scripts.evaluate_model import evaluate_model
+from load_data import load_data
+from clean_data import clean_data
+from train_model import train_model
+from evaluate_model import evaluate_model
 
 def main():
     # Putanja do dataset-a
@@ -15,7 +15,7 @@ def main():
     df = clean_data(df)
 
     # Treniraj model
-    target_column = 'nyha_class'
+    target_column = 'Test Results'
     model, X_test, y_test = train_model(df, target_column, model_path)
 
     # Evaluiraj model
