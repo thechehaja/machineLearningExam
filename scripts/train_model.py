@@ -13,9 +13,10 @@ def train_model(df, target_column, model_path):
     # Pretvori kategorijske varijable u numeričke
     label_encoders = {}
     for column in df.select_dtypes(include=['object']).columns:
-        le = LabelEncoder()
-        df[column] = le.fit_transform(df[column])
-        label_encoders[column] = le
+        if column != target_column:  # Ne enkodiraj ciljnu kolonu
+            le = LabelEncoder()
+            df[column] = le.fit_transform(df[column])
+            label_encoders[column] = le
 
     # Odvajanje značajki (features) i cilja (target)
     X = df.drop(target_column, axis=1)
