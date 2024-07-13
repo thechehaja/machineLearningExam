@@ -27,35 +27,35 @@ This project aims to build a machine learning model to classify medical conditio
 ## Installation
 
 ### Clone the Repository
-\`\`\`sh
+```sh
 git clone https://github.com/thechehaja/machineLearningExam.git
 cd machineLearningExam
-\`\`\`
+```
 
 ### Set Up Virtual Environment
 Create and activate a virtual environment to manage dependencies.
-\`\`\`sh
+```sh
 python -m venv venv
 source venv/bin/activate  # On Windows use \`venv\Scripts\activate\`
-\`\`\`
+```
 
 ### Install Dependencies
 Install the required libraries using \`pip\`:
-\`\`\`sh
+```sh
 pip install -r requirements.txt
-\`\`\`
+```
 
 ## Running the Project
 
 ### Run the Main Script
 Execute the main script to load data, train the model, and evaluate its performance.
-\`\`\`sh
+```sh
 python scripts/main.py
-\`\`\`
+```
 
 ## Project Structure
 
-\`\`\`
+```
 healthcare-data-classification/
 ├── .idea/
 ├── venv/
@@ -72,7 +72,7 @@ healthcare-data-classification/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
-\`\`\`
+```
 
 ## Requirements
 
