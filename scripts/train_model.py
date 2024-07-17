@@ -10,6 +10,9 @@ def train_model(df, target_column, model_path):
     :param target_column: Ime ciljne kolone
     :param model_path: Putanja za čuvanje modela
     """
+    # Pretvori sve kolone u stringove
+    df = df.applymap(str)
+
     # Pretvori kategorijske varijable u numeričke
     label_encoders = {}
     for column in df.select_dtypes(include=['object']).columns:

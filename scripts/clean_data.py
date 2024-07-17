@@ -4,6 +4,9 @@ def clean_data(df):
     :param df: DataFrame s podacima
     :return: Očišćen DataFrame
     """
+    # Pretvori sve kolone u stringove
+    df = df.applymap(str)
+
     # Popuni nedostajuće vrijednosti za numeričke kolone sa medianom
     for column in df.select_dtypes(include=['float64', 'int64']).columns:
         df[column] = df[column].fillna(df[column].median())
