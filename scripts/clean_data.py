@@ -5,7 +5,7 @@ def clean_data(df):
     :return: Očišćen DataFrame
     """
     # Pretvori sve kolone u stringove
-    df = df.applymap(str)
+    df = df.astype(str)
 
     # Popuni nedostajuće vrijednosti za numeričke kolone sa medianom
     for column in df.select_dtypes(include=['float64', 'int64']).columns:

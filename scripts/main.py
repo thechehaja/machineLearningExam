@@ -16,10 +16,10 @@ def main():
 
     # Treniraj model
     target_column = 'dcNyha'  # Promijeni na željenu ciljnu kolonu
-    model, X_test, y_test = train_model(df, target_column, model_path)
+    model, X_test, y_test, label_encoders = train_model(df, target_column, model_path)
 
     # Evaluiraj model
-    performance = evaluate_model(model, X_test, y_test)
+    performance = evaluate_model(model, X_test, y_test, label_encoders)
 
     # Prikaži performanse
     for metric, value in performance.items():

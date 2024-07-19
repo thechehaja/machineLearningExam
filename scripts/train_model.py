@@ -11,15 +11,14 @@ def train_model(df, target_column, model_path):
     :param model_path: Putanja za čuvanje modela
     """
     # Pretvori sve kolone u stringove
-    df = df.applymap(str)
+    df = df.astype(str)
 
-    # Pretvori kategorijske varijable u numeričke
+    # Pretvori kategorijske varijable u numeričke, uključujući ciljnu kolonu
     label_encoders = {}
     for column in df.select_dtypes(include=['object']).columns:
-        if column != target_column:  # Ne enkodiraj ciljnu kolonu
-            le = LabelEncoder()
-            df[column] = le.fit_transform(df[column])
-            label_encoders[column] = le
+        le = LabelEncoder()
+        df[column] = le.fit_transform(df[column])
+        label_encoders[column] = le
 
     # Odvajanje značajki (features) i cilja (target)
     X = df.drop(target_column, axis=1)
@@ -36,4 +35,4 @@ def train_model(df, target_column, model_path):
     with open(model_path, 'wb') as file:
         pickle.dump(model, file)
 
-    return model, X_test, y_test
+    return model, X_test, y_test, label_encoders
